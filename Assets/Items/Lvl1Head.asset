@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a34532deb1dbe045a4af68f13370d2d, type: 3}
-  m_Name: Lvl8 Helmet Of Protection
+  m_Name: Lvl1Head
   m_EditorClassIdentifier: 
-  name: Lvl8 Helmet Of Protection
-  icon: {fileID: 21300000, guid: 42a4bb9897af16e48bb61a1ae89516fc, type: 3}
+  name: HeadLvl1
+  icon: {fileID: 21300000, guid: 28bd758283bc37246a63189faa639779, type: 3}
   isDefaultItem: 0
-  equipSlot: 0
-  armorModifier: 2
-  damageModifier: 1
+  equipSlot: 2
+  armorModifier: 1
+  damageModifier: 0

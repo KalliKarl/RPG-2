@@ -27,4 +27,4 @@ public class Equipment : Item{
 
 }
 
-public enum EquipmentSlot { Head , Chest , Shoulder , Hand , Legs , Feet , Weapon , Shield }
+public enum EquipmentSlot { Weapon, Shield, Head, Chest , Shoulder, Hand, Legs, Feet}

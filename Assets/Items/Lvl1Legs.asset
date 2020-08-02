@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a34532deb1dbe045a4af68f13370d2d, type: 3}
-  m_Name: "g\u0131l\u0131c"
+  m_Name: Lvl1Legs
   m_EditorClassIdentifier: 
-  name: "G\u0131l\u0131c"
-  icon: {fileID: 21300000, guid: 11f8d0f0cf729624195a577226f6790b, type: 3}
+  name: Legs
+  icon: {fileID: 21300000, guid: 0870fd47faff36b4b8d97e81199d2801, type: 3}
   isDefaultItem: 0
   equipSlot: 6
-  armorModifier: 20
+  armorModifier: 1
   damageModifier: 0

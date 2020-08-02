@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a34532deb1dbe045a4af68f13370d2d, type: 3}
-  m_Name: Sword Of Destiny
+  m_Name: Lvl1Shoulder
   m_EditorClassIdentifier: 
-  name: Helmet Of Fire
-  icon: {fileID: 21300000, guid: 761b38b3a3831824c8148376da69243e, type: 3}
+  name: ShoulderLvl1
+  icon: {fileID: 21300000, guid: 9e9247d60733b3b48a32a95d9b273c90, type: 3}
   isDefaultItem: 0
-  equipSlot: 6
-  armorModifier: 0
-  damageModifier: 10
+  equipSlot: 4
+  armorModifier: 1
+  damageModifier: 0

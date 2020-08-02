@@ -14,14 +14,14 @@ public class GameManager : MonoBehaviour
 
     public Color playerMessage, info;
 
-    public InputField Chatbox; 
+    public InputField Chatbox;
 
     [SerializeField]
     List<Message> messageList = new List<Message>();
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 SendMessageToChat(username + ": " + Chatbox.text, Message.MessageType.playerMessage);
-                
+
                 Chatbox.text = "";
             }
         }
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     Color Messagetypecolor(Message.MessageType messageType)
     {
 
-        Color color = info ;
+        Color color = info;
 
         switch (messageType)
         {
@@ -87,15 +87,16 @@ public class GameManager : MonoBehaviour
         return color;
     }
 
-    }
+}
 
-    [System.Serializable]
-    public class Message {
-        public string text;
-        public Text textObject;
-        public MessageType messageType;
+[System.Serializable]
+public class Message
+{
+    public string text;
+    public Text textObject;
+    public MessageType messageType;
 
-        public enum MessageType{ playerMessage, info }
+    public enum MessageType { playerMessage, info }
 
-    }
+}
 

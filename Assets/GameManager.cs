@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SendMessageToChat("You Pressed space", Message.MessageType.info);
+                SendMessageToChat("Cerberus dogdu haci", Message.MessageType.info);
                 Debug.Log("Space");
             }
         }

@@ -18,3 +18,5 @@ MonoBehaviour:
   equipSlot: 0
   armorModifier: 0
   damageModifier: 10
+  level: 1
+  degree: 1

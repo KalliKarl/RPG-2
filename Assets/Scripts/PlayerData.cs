@@ -7,11 +7,25 @@ public class PlayerData
 {
 
     public int level;
-    public int health;
+    public int skillPoint;
+    public int Experience;
     public float[] position;
+    public string[] items;
+    public GameObject gameManager;
+    public Inventory playerInventory;
 
     public PlayerData(Player player) {
         level = player.level;
+        skillPoint = player.skillPoint;
+        Experience = player.experience;
+        gameManager = GameObject.Find("GameManager");
+        playerInventory = gameManager.GetComponent<Inventory>();
+
+        items = new string[playerInventory.items.Count];
+        for (int i =0; i < items.Length; i++) {
+            items[i] = playerInventory.items[i].ToString();
+        }
+        
         
 
         position = new float[3];

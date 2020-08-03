@@ -6279,7 +6279,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 703720123}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2114872045}
+        m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &703720123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13254,7 +13265,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1381537741}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2114872045}
+        m_MethodName: LoadPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1381537741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20403,7 +20425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f713c2dc0bde7794e93275c90cb43179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 3
+  level: 1
+  skillPoint: 0
+  experience: 0
 --- !u!1 &2124511557
 GameObject:
   m_ObjectHideFlags: 0

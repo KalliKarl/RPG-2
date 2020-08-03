@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int level = 3;
+    public int level = 1;
+    public int skillPoint = 0;
+    public int experience;
 
     public void SavePlayer() {
         SaveSystem.SavePlayer(this);
@@ -14,6 +16,8 @@ public class Player : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
 
         level = data.level;
+        skillPoint = data.skillPoint;
+        experience = data.Experience;
 
         Vector3 position;
         position.x = data.position[0];

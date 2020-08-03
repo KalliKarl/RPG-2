@@ -59,6 +59,8 @@ public class EquipmentManager : MonoBehaviour {
 
 
             }
+            eSlots[slotIndex].Unequipment();
+
 
         }
 

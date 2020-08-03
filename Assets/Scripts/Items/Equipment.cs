@@ -10,7 +10,8 @@ public class Equipment : Item{
 
     public int armorModifier;
     public int damageModifier;
-
+    public int level;
+    public int degree;
 
     public override void Use() {
         base.Use();

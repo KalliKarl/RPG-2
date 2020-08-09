@@ -15,4 +15,7 @@ MonoBehaviour:
   name: Healing Potion
   icon: {fileID: 21300000, guid: dd55e38ea98fbb04e8b43da26cb37d11, type: 3}
   isDefaultItem: 0
+  stackable: 1
+  stack: 1
+  potion: 1
   Hp: 10

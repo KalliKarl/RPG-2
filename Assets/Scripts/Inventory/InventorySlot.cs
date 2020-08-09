@@ -7,13 +7,28 @@ public class InventorySlot : MonoBehaviour
     
     public Image icon;
     public Button removeButton;
-    //public Button activeButton;
+    public Text txtStack;
+    public int stack= 1;
     Item item;
+
+    public void SetStack(int a) {
+
+        stack = a;
+    }
+    public int GetStack() {
+
+        return stack;
+    }
     public  void AddItem(Item newItem) {
 
         item = newItem;
         icon.sprite = item.icon;
         icon.enabled = true;
+        if (newItem.stackable) {
+
+            txtStack.enabled = true;
+            txtStack.text = stack.ToString();
+        }
         removeButton.interactable = true;
         //activeButton.interactable = true;
 

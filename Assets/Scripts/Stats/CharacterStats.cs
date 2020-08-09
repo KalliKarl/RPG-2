@@ -13,6 +13,15 @@ public class CharacterStats : MonoBehaviour {
         currentHealth = maxHealth;
     }
     
+    public void Healthmodifer(int hp)
+    {
+        int kontrol = currentHealth + hp;
+        if (kontrol > maxHealth)
+            currentHealth = maxHealth;
+
+        currentHealth += hp;
+
+    }
     public void TakeDamage(int damage) {
 
         damage -= armor.GetValue();

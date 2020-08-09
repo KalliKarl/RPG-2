@@ -35,9 +35,30 @@ public class ItemPickup : Interactable {
 
 			}
 		}
-		
-		if(!isFound)
+
+        if (!isFound)
+        {
+
 			Inventory.instance.Add(item);   // Add to inventory
+			if (Inventory.instance.items.Count > 0)
+			{
+				for (int i = 0; i < Inventory.instance.items.Count; i++)
+				{
+
+					if (Inventory.instance.items[i].name == item.name)
+					{
+
+						slots[i].stack = item.stack;
+						Text yazi = slots[i].txtStack;
+						yazi.text = slots[i].stack.ToString();
+						slots[i].txtStack.enabled = true;
+						
+					}
+
+				}
+			}
+		}
+			
 
 		Destroy(gameObject);    // Destroy item from scene
 		isFound = false;

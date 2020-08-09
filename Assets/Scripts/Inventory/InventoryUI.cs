@@ -36,9 +36,11 @@ public class InventoryUI : MonoBehaviour
             if (i < inventory.items.Count) {
 
                 slots[i].AddItem(inventory.items[i]);
-
+                slots[i].stack = slots[i + 1].stack;
+                slots[i].txtStack.text = slots[i + 1].txtStack.text;
             }
             else {
+                slots[i].txtStack.enabled = false;
                 slots[i].ClearSlot();
             }
         }

@@ -40,7 +40,7 @@ public class ItemPickup : Interactable {
         {
 
 			Inventory.instance.Add(item);   // Add to inventory
-			if (Inventory.instance.items.Count > 0)
+			if (item.stackable)
 			{
 				for (int i = 0; i < Inventory.instance.items.Count; i++)
 				{

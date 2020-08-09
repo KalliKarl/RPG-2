@@ -11,22 +11,17 @@ public class PlayerData
     public int Experience;
     public float[] position;
     public string[] items;
-    public GameObject gameManager;
-    public Inventory playerInventory;
-
+    //public GameObject gameManager;
+    //public Inventory playerInventory;
     public PlayerData(Player player) {
         level = player.level;
         skillPoint = player.skillPoint;
         Experience = player.experience;
-        gameManager = GameObject.Find("GameManager");
-        playerInventory = gameManager.GetComponent<Inventory>();
+        items = new string[player.items.Length];
 
-        items = new string[playerInventory.items.Count];
-        for (int i =0; i < items.Length; i++) {
-            items[i] = playerInventory.items[i].ToString();
+        for (int i = 0; i < player.items.Length; i++) {
+            items[i] = player.items[i];
         }
-        
-        
 
         position = new float[3];
         position[0] = player.transform.position.x;

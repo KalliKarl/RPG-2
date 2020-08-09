@@ -13,12 +13,15 @@ public class PlayerData
     public string[] items;
     //public GameObject gameManager;
     //public Inventory playerInventory;
+    //List <Item> item = new List<Item>();
     public PlayerData(Player player) {
+        //GameObject manager = GameObject.Find("GameManager");
+        //item = manager.GetComponent<Inventory>().items;
+
         level = player.level;
         skillPoint = player.skillPoint;
         Experience = player.experience;
         items = new string[player.items.Length];
-
         for (int i = 0; i < player.items.Length; i++) {
             items[i] = player.items[i];
         }

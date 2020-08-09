@@ -9,10 +9,10 @@ public class Player : MonoBehaviour{
     public int experience;
     public string[] items;
     
-    public GameObject gameManager;
-    public Inventory playerInventory;
-    public Item item;
-    public itemManager itManager;
+    GameObject gameManager;
+    Inventory playerInventory;
+    Item item;
+    itemManager itManager;
 
     public void Start() {
     }
@@ -21,15 +21,12 @@ public class Player : MonoBehaviour{
 
         GameObject itemler = GameObject.Find("ItemManager");
         itManager = itemler.GetComponent<itemManager>();
-        
-
         gameManager = GameObject.Find("GameManager");
         playerInventory = gameManager.GetComponent<Inventory>();
 
-        playerInventory.items = itManager.items;
         items = new string[playerInventory.items.Count];
         for (int i = 0; i < items.Length; i++) {
-            items[i] = playerInventory.items[i].ToString();
+            items[i] = playerInventory.items[i].name;
         }
         SaveSystem.SavePlayer(this);
     }
@@ -42,11 +39,18 @@ public class Player : MonoBehaviour{
         level = data.level;
         skillPoint = data.skillPoint;
         experience = data.Experience;
-        items = new string[data.items.Length];
 
-        for (int i =0; i<data.items.Length;i++) {
-            items[i] = data.items[i];
-           // Inventory.instance.Add(items[i]);
+        for (int i =0; i<itManager.items.Count;i++) {
+            for(int j = 0; j < data.items.Length;j++) {
+                
+                string a = itManager.items[i].name;
+                string b = data.items[j].ToString();
+                if ( a == b ) {
+                    item = itManager.items[i];
+                    Inventory.instance.Add(item);
+                }
+            }
+           
             #region comment
             /*
             if(items[i] != null) {

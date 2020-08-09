@@ -8088,6 +8088,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e9bbca9a7298fc648be955bc89149983, type: 2}
   - {fileID: 11400000, guid: 64490db0117eba143bdb58dbe3a685d5, type: 2}
   - {fileID: 11400000, guid: 075095ac010beb04f9424740245f803b, type: 2}
+  - {fileID: 11400000, guid: 7333fc38e5a0795428620371f43f4fcb, type: 2}
 --- !u!4 &859287745
 Transform:
   m_ObjectHideFlags: 0
@@ -20763,10 +20764,6 @@ MonoBehaviour:
   skillPoint: 0
   experience: 0
   items: []
-  gameManager: {fileID: 0}
-  playerInventory: {fileID: 0}
-  item: {fileID: 0}
-  itManager: {fileID: 0}
 --- !u!1 &2124511557
 GameObject:
   m_ObjectHideFlags: 0

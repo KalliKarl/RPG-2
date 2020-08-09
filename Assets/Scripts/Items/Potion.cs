@@ -7,7 +7,6 @@ public class Potion : Item
     public bool potion = false;
     public int Hp;
     InventorySlot[] slots = null;
-    bool isFound = false;
     public override void Use()
     {
         base.Use();

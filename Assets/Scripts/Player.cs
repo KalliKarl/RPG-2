@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEditor;
 public class Player : MonoBehaviour{
     
-    public int level = 1;
-    public int skillPoint = 0;
+    public int level;
+    public int skillPoint;
     public int experience;
     public string[] items;
     public string[] equips;
@@ -15,6 +15,8 @@ public class Player : MonoBehaviour{
     Item item;
     itemManager itManager;
     Equipment[] currentEquipment;
+    [SerializeField]
+    PlayerData data;
 
     public object currentEquip { get; internal set; }
 
@@ -45,8 +47,7 @@ public class Player : MonoBehaviour{
     public void LoadPlayer() {
         GameObject itemler = GameObject.Find("ItemManager");
         itManager = itemler.GetComponent<itemManager>();
-
-        PlayerData data = SaveSystem.LoadPlayer();
+        data = SaveSystem.LoadPlayer();
         if(Inventory.instance.items.Count >0)
         Inventory.instance.items.Clear();
 

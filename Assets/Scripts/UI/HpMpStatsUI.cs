@@ -2,27 +2,35 @@
 using UnityEngine.UI;
 public class HpMpStatsUI : MonoBehaviour
 {
-    public GameObject uiPrefab,player;
-    public Transform target;
-
-    Transform ui;
-    Image healthSlider;
+    public GameObject player;
+    public int level, exp, sp;
+    public Image healthSlider;
+    public Text CurHp, MaxHp, Level , Exp , Sp;
     // Start is called before the first frame update
     void Start()
     {
-        ui = Instantiate(uiPrefab, target).transform;
-        
-        ui.transform.localScale = new Vector3(100f, 100f, 1f);
-        healthSlider = ui.GetChild(0).GetComponent<Image>();
-        healthSlider.fillOrigin = 2;
-
-
         player.GetComponent<CharacterStats>().OnHealthChanged += OnHealthChaned;
+        level = player.GetComponent<Player>().level;
+        exp = player.GetComponent<Player>().experience;
+        sp = player.GetComponent<Player>().skillPoint;
+
+
+        MaxHp.text = "/ " + player.GetComponent<CharacterStats>().maxHealth.ToString();
+        CurHp.text = player.GetComponent<CharacterStats>().currentHealth.ToString();
+
+        Level.text = "Level : " + level.ToString();
+        Exp.text = "Expereince : " + exp.ToString();
+        Sp.text = "SkillPoint : " + sp.ToString();
     }
     void OnHealthChaned(int maxHealth, int currentHealth) {
-        if (ui != null) {
+        if (healthSlider != null) {
             float healthPercent = currentHealth / (float)maxHealth;
+
             healthSlider.fillAmount = healthPercent;
+            MaxHp.text = "/ " + maxHealth.ToString();
+            CurHp.text = currentHealth.ToString();
+
+            
         }
     }
 

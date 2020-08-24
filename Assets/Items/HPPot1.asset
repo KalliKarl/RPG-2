@@ -18,4 +18,4 @@ MonoBehaviour:
   stackable: 1
   stack: 1
   potion: 1
-  Hp: 10
+  Hp: 50

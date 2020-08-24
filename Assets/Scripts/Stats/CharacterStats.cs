@@ -7,20 +7,34 @@ public class CharacterStats : MonoBehaviour {
     public Stat damage;
     public Stat armor;
 
+    public int arm , dmg ;
     public event System.Action<int, int> OnHealthChanged;
 
     private void Awake() {
         currentHealth = maxHealth;
     }
     
-    public void Healthmodifer(int hp)
-    {
+    
+
+    public void Update() {
+
+        if(Input.GetButton("Stats")) {
+            Stats();
+        }
+    }
+    public void Healthmodifer(int hp) {
         int kontrol = currentHealth + hp;
         if (kontrol > maxHealth)
             currentHealth = maxHealth;
 
         currentHealth += hp;
 
+    }
+
+    public void Stats() {
+        arm = armor.GetValue();
+        dmg = damage.GetValue();
+        //Debug.Log("armor = " + arm + " Damage = " + dmg);
     }
     public void TakeDamage(int damage) {
 

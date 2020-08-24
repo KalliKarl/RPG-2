@@ -27,17 +27,20 @@ public class Inventory : MonoBehaviour{
     {
         //Debug.Log("ADD Fonksiyonu");
         if (item.isDefaultItem != true){
-           // Debug.Log("OK Not Default Item  its ");
-            if (items.Count >= space){
-                Debug.Log("ERROR ! Not enough room.");
-                return false;
+            // Debug.Log("OK Not Default Item  its ");
+            if (true) {
+                if (items.Count >= space) {
+                    Debug.Log("ERROR ! Not enough room.");
+                    return false;
+                }
+                else {
+                    Debug.Log("OK item Added = " + item);
+                    items.Add(item);
+                    if (onItemChangedCallBack != null)
+                        onItemChangedCallBack.Invoke();
+                }
             }
-            else {
-               Debug.Log("OK item Added = " + item);
-                items.Add(item);
-                if(onItemChangedCallBack != null)
-                onItemChangedCallBack.Invoke();
-            }
+            
         }
         Debug.Log("Default ITEM!!");
         return true;

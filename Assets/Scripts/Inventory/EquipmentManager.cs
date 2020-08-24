@@ -12,13 +12,15 @@ public class EquipmentManager : MonoBehaviour {
     }
     #endregion
 
+    [SerializeField]
     Equipment[] currentEquipment;
-    public Transform equipParents;
 
+    public Transform equipParents;
     EquipmentSlots[] eSlots;
 
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
+    public int value;
 
     Inventory inventory;
     void Start() {
@@ -45,6 +47,8 @@ public class EquipmentManager : MonoBehaviour {
             onEquipmentChanged.Invoke(newItem, oldItem);
             eSlots[slotIndex].AddItem(newItem);
         }
+        Stat a = new Stat();
+        value = a.GetValue();
     }
     public void Unequip(int slotIndex) {
         if (currentEquipment[slotIndex] != null) {
@@ -57,13 +61,15 @@ public class EquipmentManager : MonoBehaviour {
 
                 onEquipmentChanged.Invoke(null, oldItem);
 
-
             }
             eSlots[slotIndex].Unequipment();
 
-
         }
 
+    }
+    public Equipment[] CurrentEq() {
+
+        return currentEquipment;
     }
 
     public void UnequipAll() {

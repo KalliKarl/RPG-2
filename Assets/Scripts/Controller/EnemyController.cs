@@ -9,7 +9,8 @@ public class EnemyController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     CharacterCombat combat;
-
+    int walkRadius = 30;
+    private float walkCoolDown = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,9 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        walkCoolDown -= Time.deltaTime;
+
         float distance = Vector3.Distance(target.position,  transform.position);
 
         if (distance <= lookRadius) {
@@ -36,6 +40,20 @@ public class EnemyController : MonoBehaviour
                 //Attack target;
                 faceTarget();
             }
+        }
+        else {
+            if(walkCoolDown <= 0) {
+                Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
+
+                randomDirection += transform.position;
+                NavMeshHit hit;
+                NavMesh.SamplePosition(randomDirection, out hit, walkRadius, 1);
+                Vector3 finalPosition = hit.position;
+
+                agent.SetDestination(finalPosition);
+                walkCoolDown = 6f;
+            }
+            
         }
     }
 

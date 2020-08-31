@@ -4,9 +4,11 @@ public class EnemyStats : CharacterStats
 {
     public GameObject prefab;
     public GameObject Kasa;
-
+    GameObject ItemsParent;
     itemManager itManager;
-    public int Exp ,Sp, Level;
+    public int Exp, Sp, Level;
+    [HideInInspector]
+    public int ratio,ratio1,rand;
 
     public override void Die() {
         base.Die();
@@ -37,10 +39,14 @@ public class EnemyStats : CharacterStats
         
         GameObject itemler = GameObject.Find("ItemManager");
         itManager = itemler.GetComponent<itemManager>();
-        GameObject itparent = GameObject.Find("ItemsParent");
-
-        Kasa.GetComponent<ItemPickup>().item = itManager.items[0];
-        Kasa.GetComponent<ItemPickup>().itemsParent = itparent;
+        
+        ratio = (int)Random.Range(0f,3f);
+        ratio1 = (int)Random.Range(0f,3f);
+        rand = (int)Random.Range(0f, itManager.items.Count);
+        Debug.Log(ratio + " \t"+ ratio1 + " \t" + rand);
+        Kasa.GetComponent<ItemPickup>().item = itManager.items[rand];
+        Kasa.GetComponent<ItemPickup>().itemsParent = ItemsParent;
+        if(ratio == ratio1)
         Instantiate(Kasa,trans.position ,Quaternion.identity);
 
         Destroy(gameObject);

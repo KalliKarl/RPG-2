@@ -14,8 +14,6 @@ public class CharacterStats : MonoBehaviour {
         currentHealth = maxHealth;
     }
     
-    
-
     public void Update() {
 
         if(Input.GetButton("Stats")) {
@@ -24,11 +22,13 @@ public class CharacterStats : MonoBehaviour {
     }
     public void Healthmodifer(int hp) {
         int kontrol = currentHealth + hp;
-        if (kontrol > maxHealth)
+        if (kontrol >= maxHealth) {
             currentHealth = maxHealth;
-
-        currentHealth += hp;
-
+        }
+        else {
+            currentHealth += hp;
+        }
+        
     }
 
     public void Stats() {
@@ -56,7 +56,7 @@ public class CharacterStats : MonoBehaviour {
         //This method  is meant to be overwritten
 
         Debug.Log(transform.name + " died.");
-        int rand = (int)Random.Range(0f, 5f);
+        int rand = (int)Random.Range(1f, 5f);
         FindObjectOfType<AudioManager>().Play("dead" + rand);
     }
 }

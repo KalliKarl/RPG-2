@@ -38,7 +38,8 @@ public class PlayerControl : MonoBehaviour {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100)) {
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                
+                Interactable interactable = hit.collider.GetComponentInParent<Interactable>();
                 if (interactable != null) {
                     SetFocus(interactable);
                 }

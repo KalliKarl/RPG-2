@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyStats : CharacterStats
 {
     public GameObject prefab;
     public GameObject Kasa;
-    GameObject ItemsParent;
+    public GameObject ItemsParent;
+    public string mobName;
     itemManager itManager;
     public int Exp, Sp, Level;
     [HideInInspector]
@@ -25,7 +27,17 @@ public class EnemyStats : CharacterStats
         int check = player.GetComponent<Player>().experience;
         int lvl = check / 100;
         lvl++;
-        player.GetComponent<Player>().level = lvl;
+
+        
+        if (player.GetComponent<Player>().level != lvl) {
+            player.GetComponent<Player>().level = lvl;
+            player.GetComponent<PlayerStats>().maxHealth = 100 + lvl * 10;
+            player.GetComponent<PlayerStats>().Healthmodifer(player.GetComponent<PlayerStats>().maxHealth);
+            GameObject.Find("HpBarRight").GetComponent<Image>().fillAmount = 1;
+            GameObject _stats = GameObject.Find("Stats");
+            _stats.GetComponent<HpMpStatsUI>().MaxHp.text = player.GetComponent<PlayerStats>().maxHealth.ToString();
+            _stats.GetComponent<HpMpStatsUI>().CurHp.text = player.GetComponent<PlayerStats>().currentHealth.ToString();
+        }
 
 
         GameObject stats = GameObject.Find("Stats");

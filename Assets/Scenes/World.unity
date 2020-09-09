@@ -4353,6 +4353,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849578066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1724899686945725761, guid: a18e57b960c85f74fbe55b9fe259f8e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1724899687345390894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &852524117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6260,6 +6266,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 871226804090483174, guid: 4e5049ee58f5f544091adc8246089a43,
     type: 3}
   m_PrefabInstance: {fileID: 1556398898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1168465473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6414881547947660652, guid: c756a7b6e733235458d9a024c4d7ac5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6414881547100030155}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1175603947 stripped
 Transform:
@@ -8221,13 +8233,18 @@ MonoBehaviour:
   - {fileID: 1418750249}
   - {fileID: 935881265}
   - {fileID: 1082919953}
+  - {fileID: 1168465473}
+  - {fileID: 1716359110}
+  - {fileID: 849578066}
   spawnValues: {x: 0, y: 0, z: 0}
-  spawnWait: 5
-  spawnMostWait: 10
+  spawnWait: 3
+  spawnMostWait: 5
   spawnLeastWait: 1
   startWait: 0
   stop: 0
-  range: 0
+  range: 30
+  enemyCount: 0
+  limit: 20
 --- !u!4 &1563322107
 Transform:
   m_ObjectHideFlags: 0
@@ -8236,7 +8253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563322105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -328.89, y: 6.57, z: -179.11}
+  m_LocalPosition: {x: 217, y: 2.8, z: -34.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9283,6 +9300,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716304183}
   m_CullTransparentMesh: 0
+--- !u!1 &1716359110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3426273226864613155, guid: 4491aada2d0469541a59d1ee3de1f178,
+    type: 3}
+  m_PrefabInstance: {fileID: 3426273226368316249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1716813901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4419083434238170, guid: 71442e8cd72511e4fabb72f1a2cc82dd,
@@ -10084,8 +10107,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886545630}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -324, y: -9.92, z: -205}
+  m_LocalRotation: {x: 0.3079177, y: 0.29471496, z: 0.10094904, w: -0.8989656}
+  m_LocalPosition: {x: -317.69757, y: 2.4491005, z: -201.16747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11391,7 +11414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dde0778c0146643add5b081e21a122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10000
   damage:
     baseValue: 15
   armor:
@@ -11782,6 +11805,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weysel
       objectReference: {fileID: 0}
+    - target: {fileID: 216844166272664034, guid: 05fe5f9227abfba49a9331c7156ef480,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyLvl3
+      objectReference: {fileID: 0}
     - target: {fileID: 216844166272664039, guid: 05fe5f9227abfba49a9331c7156ef480,
         type: 3}
       propertyPath: ItemsParent
@@ -12009,6 +12037,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yeoha
       objectReference: {fileID: 0}
+    - target: {fileID: 1724899686945725761, guid: a18e57b960c85f74fbe55b9fe259f8e1,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyLvl6
+      objectReference: {fileID: 0}
     - target: {fileID: 1724899686945725782, guid: a18e57b960c85f74fbe55b9fe259f8e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12112,6 +12145,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Eagle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426273226864613155, guid: 4491aada2d0469541a59d1ee3de1f178,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyLvl5
       objectReference: {fileID: 0}
     - target: {fileID: 3426273226864613156, guid: 4491aada2d0469541a59d1ee3de1f178,
         type: 3}
@@ -12524,6 +12562,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EarthGhost
       objectReference: {fileID: 0}
+    - target: {fileID: 4228379939271296815, guid: e042787a80f67f3489e0b458e950e36c,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyLvl2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e042787a80f67f3489e0b458e950e36c, type: 3}
 --- !u!224 &4679832541967094879
@@ -12729,6 +12772,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leon
       objectReference: {fileID: 0}
+    - target: {fileID: 6414881547947660652, guid: c756a7b6e733235458d9a024c4d7ac5e,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyLvl4
+      objectReference: {fileID: 0}
     - target: {fileID: 6414881547947660667, guid: c756a7b6e733235458d9a024c4d7ac5e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12802,6 +12850,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MangYang
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244467287708763941, guid: 548a3c0182b8e66409196909cc217880,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyLvl1
       objectReference: {fileID: 0}
     - target: {fileID: 8244467287708763966, guid: 548a3c0182b8e66409196909cc217880,
         type: 3}

@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Policy;
 using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-    public GameObject[] enemies;  
+    public GameObject[] enemies,spots;  
     public Vector3 spawnValues;
     public float spawnWait;
     public float spawnMostWait;
     public float spawnLeastWait;
     public int startWait;
-    public bool stop;
+    public bool stop,spot;
     int randEnemy;
     public float range;
     public int enemyCount,limit;
@@ -32,25 +33,32 @@ public class spawner : MonoBehaviour
         yield return new WaitForSeconds(startWait);
 
         while (!stop) {
-            randEnemy = Random.Range(0, 5);
-            spawnValues = new Vector3(Random.Range(transform.position.x + range, transform.position.x - range), transform.position.y, Random.Range(transform.position.z + range, transform.position.z - range)) ;
-            Debug.Log("---------------------------------");
+            randEnemy = Random.Range(0, enemies.Length);
+            int randSpot = Random.Range(0,8);
+            if (spot) {
+                spawnValues = spots[randSpot].transform.position;
+            }
+            else {
+
+                spawnValues = new Vector3(Random.Range(transform.position.x + range, transform.position.x - range), transform.position.y, Random.Range(transform.position.z + range, transform.position.z - range));
+
+            }
             for (int i = 7; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++) {
 
                 string _tag = UnityEditorInternal.InternalEditorUtility.tags[i];
                 int _lvl = GameObject.FindGameObjectsWithTag(_tag).Length;
                 if (enemyDic.ContainsKey(_tag)) {
                     enemyDic[_tag] = _lvl;
-                    Debug.Log("Key = :" + _tag +"\t value :" + _lvl);
+                    //Debug.Log("Key:" + _tag +"\t value:" + _lvl);
                 }
                 else {
                     enemyDic.Add(_tag,_lvl);
                 }
-                
-
             }
+
            
-            if (enemyCount <= limit) {
+            if (enemyDic.Values.ElementAt(randEnemy)  <= limit) {
+                
                 Instantiate(enemies[randEnemy], spawnValues, gameObject.transform.rotation);
                 enemyCount++;
             }

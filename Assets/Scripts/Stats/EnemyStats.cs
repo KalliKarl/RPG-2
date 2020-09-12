@@ -1,24 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class EnemyStats : CharacterStats
 {
-    public GameObject prefab;
-    public GameObject Kasa;
-    public GameObject ItemsParent;
+    public GameObject prefab,Kasa,itemsParent;
     public string mobName;
     itemManager itManager;
     public int Exp, Sp, Level;
     [HideInInspector]
     public int ratio,ratio1,rand;
 
+    private void Start() {
+        itemsParent = FindInActiveObjectByName("ItemsParent");
+    }
+
     public override void Die() {
         base.Die();
 
-        // Add ragdoll effect  / death animation
-        
-        //Instantiate(prefab,gameObject.transform.position,gameObject.transform.rotation);
-       
+        // Add ragdoll effect  / death animation       
         GameObject player = GameObject.Find("Player");
         player.GetComponent<Player>().experience += Exp;
         player.GetComponent<Player>().skillPoint  += Sp;
@@ -52,17 +54,44 @@ public class EnemyStats : CharacterStats
         GameObject itemler = GameObject.Find("ItemManager");
         itManager = itemler.GetComponent<itemManager>();
         
-        ratio = (int)Random.Range(0f,3f);
-        ratio1 = (int)Random.Range(0f,3f);
+        ratio = (int)Random.Range(0f,1f);
+        ratio1 = (int)Random.Range(0f,1f);
         rand = (int)Random.Range(0f, itManager.items.Count);
         Debug.Log(ratio + " \t"+ ratio1 + " \t" + rand);
-        Kasa.GetComponent<ItemPickup>().item = itManager.items[rand];
-        Kasa.GetComponent<ItemPickup>().itemsParent = ItemsParent;
-        if(ratio == ratio1)
-        Instantiate(Kasa,trans.position ,Quaternion.identity);
-
+        
+        if(ratio == ratio1) {
+            GameObject itemKasa = Instantiate(Kasa, trans.transform.position,Quaternion.identity) as GameObject;
+            itemKasa.GetComponent<ItemPickup>().item = itManager.items[rand];
+            itemKasa.GetComponent<ItemPickup>().itemsParent = itemsParent;
+        }
+            
         Destroy(gameObject);
-
+        string _deadMob = gameObject.transform.tag;
+        GameObject spawner = GameObject.Find("Spawner1Lvl");
+        spawner.GetComponent<spawner>().stop = false;
+        int j = 0;
+        for (int i = 7; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++) {
+            if (_deadMob == UnityEditorInternal.InternalEditorUtility.tags[i]) {
+                spawner.GetComponent<spawner>().enemyCount[j] -=1;
+                spawner.GetComponent<spawner>().startCorotine();
+            }
+            j++;
+        }
+    }
+    GameObject FindInActiveObjectByName(string name)
+    {
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].name == name)
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
     }
 
 }

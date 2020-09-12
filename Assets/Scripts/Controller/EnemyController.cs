@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
                 Vector3 finalPosition = hit.position;
 
                 agent.SetDestination(finalPosition);
-                walkCoolDown = 6f;
+                walkCoolDown = 15f;
             }
             
         }

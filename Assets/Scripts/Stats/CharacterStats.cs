@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour {
 
@@ -6,16 +7,20 @@ public class CharacterStats : MonoBehaviour {
     public int currentHealth { get; private set; }
     public Stat damage;
     public Stat armor;
+    public GameObject txtDamage;
+    public Transform transDmg;
+    Camera camera1;
 
     public int arm , dmg ;
     public event System.Action<int, int> OnHealthChanged;
 
     private void Awake() {
         currentHealth = maxHealth;
+        camera1 = Camera.main;
     }
     
     public void Update() {
-
+       // Vector3 screenPos = camera1.WorldToScreenPoint(transform.position);
         if(Input.GetButton("Stats")) {
             Stats();
         }
@@ -42,7 +47,20 @@ public class CharacterStats : MonoBehaviour {
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= damage;
-        Debug.Log(transform.name + "Takes " + damage + "Damage");
+        //Debug.Log(transform.name + "Takes " + damage + "Damage");
+
+        foreach (Canvas c in FindObjectsOfType<Canvas>()) {
+            if (c.renderMode != RenderMode.WorldSpace) {
+                Vector3 screenPos = camera1.WorldToScreenPoint(transform.position);
+                
+                GameObject txtDmgUI = Instantiate(txtDamage) as GameObject;
+                txtDmgUI.transform.SetParent(c.transform);
+                RectTransform brt = txtDmgUI.GetComponent<RectTransform>();
+                txtDmgUI.AddComponent<DamageUI>();
+                txtDmgUI.GetComponent<Text>().text = damage.ToString();
+
+            }
+        }
 
         OnHealthChanged?.Invoke(maxHealth, currentHealth);
 

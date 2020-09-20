@@ -12,6 +12,7 @@ public class EnemyStats : CharacterStats
     public int Exp, Sp, Level;
     [HideInInspector]
     public int ratio,ratio1,rand;
+    public GameObject lvlParti;
 
     private void Start() {
         itemsParent = FindInActiveObjectByName("ItemsParent");
@@ -45,6 +46,7 @@ public class EnemyStats : CharacterStats
             GameObject _stats = GameObject.Find("Stats");
             _stats.GetComponent<HpMpStatsUI>().MaxHp.text = player.GetComponent<PlayerStats>().maxHealth.ToString();
             _stats.GetComponent<HpMpStatsUI>().CurHp.text = player.GetComponent<PlayerStats>().currentHealth.ToString();
+            Instantiate(lvlParti,new Vector3(transform.position.x,transform.position.y + 1,transform.position.z), Quaternion.Euler(-90,0,0) ,player.transform);
         }
         #endregion
 

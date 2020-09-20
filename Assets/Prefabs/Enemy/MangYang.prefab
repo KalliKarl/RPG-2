@@ -304,8 +304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 4
   interactionTransform: {fileID: 7913874282507953829}
-  healthSlider: {fileID: 9077253781216733776, guid: ae4183ab58e5a944fa807cde108acfb8,
-    type: 3}
 --- !u!114 &7913874282507953851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +336,8 @@ MonoBehaviour:
   ratio: 0
   ratio1: 0
   rand: 0
+  lvlParti: {fileID: 3291501045576305271, guid: 57396a86f7a84524f99bed14cefa46c4,
+    type: 3}
 --- !u!114 &7913874282507953852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 1
   attackDelay: 0.6
+  player: {fileID: 0}
 --- !u!114 &7913874282507953853
 MonoBehaviour:
   m_ObjectHideFlags: 0

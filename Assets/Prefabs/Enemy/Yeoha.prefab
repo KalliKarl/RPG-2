@@ -182,6 +182,8 @@ MonoBehaviour:
   ratio: 0
   ratio1: 0
   rand: 0
+  lvlParti: {fileID: 3291501045576305271, guid: 57396a86f7a84524f99bed14cefa46c4,
+    type: 3}
 --- !u!114 &2884232506359663219
 MonoBehaviour:
   m_ObjectHideFlags: 0

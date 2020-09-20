@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour{
@@ -10,11 +11,14 @@ public class CharacterCombat : MonoBehaviour{
     public float attackDelay = .6f;
     public event System.Action OnAttack;
     CharacterStats myStats;
-
+    Image healthSlider;
+    public GameObject player;
     private Animator anim;
     private void Start() {
         myStats = GetComponent<CharacterStats>();
         anim = GameObject.Find("AxeAnimator").GetComponent<Animator>();
+        healthSlider = FindInActiveObjectByName("MobHpTop").GetComponent<Image>();
+        player = GameObject.Find("Player");
     }
 
     private void Update() {
@@ -30,7 +34,8 @@ public class CharacterCombat : MonoBehaviour{
                 OnAttack();
             if (anim != null && gameObject.name == "Player") {
                 anim.Play("Base Layer.aXe",0);
-            }
+            }            
+           
         }
     }
 
@@ -40,6 +45,24 @@ public class CharacterCombat : MonoBehaviour{
         int rand = (int)Random.Range(0f, 5f);
         //Debug.Log(rand +"DoDamage" + myStats.damage.GetValue());
         
+        if (healthSlider != null && player.GetComponent<PlayerControl>().focus != null) {
+                    Interactable enemy =    player.GetComponent<PlayerControl>().focus;
+                    float healthPercent =(float) enemy.GetComponent<EnemyStats>().currentHealth / (float)enemy.GetComponent<EnemyStats>().maxHealth;
+                    GameObject.Find("MobCHp").GetComponent<Text>().text = enemy.GetComponent<EnemyStats>().currentHealth.ToString();
+                    GameObject.Find("MobMHp").GetComponent<Text>().text = " /" + enemy.GetComponent<EnemyStats>().maxHealth.ToString();
+            healthSlider.fillAmount = healthPercent;
+            }
         FindObjectOfType<AudioManager>().Play("hit"+rand);
+    }
+    GameObject FindInActiveObjectByName(string name) {
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++) {
+            if (objs[i].hideFlags == HideFlags.None) {
+                if (objs[i].name == name) {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
     }
 }

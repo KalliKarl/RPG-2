@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 7385895131390716998}
   - component: {fileID: 7385895131390716999}
   m_Layer: 8
-  m_Name: Weysel 1
+  m_Name: Weysel
   m_TagString: EnemyLvl3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,20 +244,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a576ea220b879f8439778b62c27f2664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 60
   damage:
     baseValue: 7
   armor:
     baseValue: 2
   txtDamage: {fileID: 3920224839572016403, guid: 3324678006317d740ba4bb44e3b6a93f,
     type: 3}
+  transDmg: {fileID: 0}
   arm: 0
   dmg: 0
   prefab: {fileID: 7385895131390716996}
   Kasa: {fileID: 7872901052400666675, guid: afcfdf2bbe16d074195b1dbe8d7d9d8d, type: 3}
-  ItemsParent: {fileID: 0}
+  itemsParent: {fileID: 0}
   mobName: Weysel
-  Exp: 35
+  Exp: 55
   Sp: 2
   Level: 3
   ratio: 0
@@ -277,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 1
   attackDelay: 0.6
+  player: {fileID: 0}
 --- !u!114 &7385895131390716999
 MonoBehaviour:
   m_ObjectHideFlags: 0

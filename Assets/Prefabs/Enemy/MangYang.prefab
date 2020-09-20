@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 7913874282507953852}
   - component: {fileID: 7913874282507953853}
   m_Layer: 8
-  m_Name: MangYang 1
+  m_Name: MangYang
   m_TagString: EnemyLvl1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,6 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 4
   interactionTransform: {fileID: 7913874282507953829}
+  healthSlider: {fileID: 9077253781216733776, guid: ae4183ab58e5a944fa807cde108acfb8,
+    type: 3}
 --- !u!114 &7913874282507953851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,11 +325,12 @@ MonoBehaviour:
     baseValue: 2
   txtDamage: {fileID: 3920224839572016403, guid: 3324678006317d740ba4bb44e3b6a93f,
     type: 3}
+  transDmg: {fileID: 0}
   arm: 0
   dmg: 0
   prefab: {fileID: 7913874282507953854}
   Kasa: {fileID: 7872901052400666675, guid: afcfdf2bbe16d074195b1dbe8d7d9d8d, type: 3}
-  ItemsParent: {fileID: 0}
+  itemsParent: {fileID: 0}
   mobName: MangYang
   Exp: 35
   Sp: 2

@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 423888}
   - component: {fileID: 3397388}
   - component: {fileID: 2353144}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tree Type0 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &423888
 Transform:

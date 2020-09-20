@@ -24,13 +24,19 @@ public class EnemyStats : CharacterStats
         GameObject player = GameObject.Find("Player");
         player.GetComponent<Player>().experience += Exp;
         player.GetComponent<Player>().skillPoint  += Sp;
+        GameObject logViewer = GameObject.Find("logContent");
+        Color renk = Color.green;
+        Color renk2 = Color.yellow;
+        logViewer.GetComponent<logViewer>().entryLog(Exp + "\t Experience gained.",renk);
+        logViewer.GetComponent<logViewer>().entryLog(Sp + "\t Skill Point gained.",renk2);
 
 
+        #region Level UP
         int check = player.GetComponent<Player>().experience;
         int lvl = check / 100;
         lvl++;
 
-        
+        // if level up
         if (player.GetComponent<Player>().level != lvl) {
             player.GetComponent<Player>().level = lvl;
             player.GetComponent<PlayerStats>().maxHealth = 100 + lvl * 10;
@@ -40,32 +46,36 @@ public class EnemyStats : CharacterStats
             _stats.GetComponent<HpMpStatsUI>().MaxHp.text = player.GetComponent<PlayerStats>().maxHealth.ToString();
             _stats.GetComponent<HpMpStatsUI>().CurHp.text = player.GetComponent<PlayerStats>().currentHealth.ToString();
         }
+        #endregion
 
-
+        #region Update UI
         GameObject stats = GameObject.Find("Stats");
         stats.GetComponent<HpMpStatsUI>().Level.text = "Level : " + lvl.ToString();
         stats.GetComponent<HpMpStatsUI>().Exp.text = "Expereince : " + check.ToString();
         stats.GetComponent<HpMpStatsUI>().Sp.text = "SkillPoint : " + player.GetComponent<Player>().skillPoint.ToString();
+        #endregion
 
-
+        #region Item Drop
         Transform trans = this.transform;
         trans.position = new Vector3(trans.position.x,trans.position.y + 0.42f,trans.position.z);
-        
         GameObject itemler = GameObject.Find("ItemManager");
         itManager = itemler.GetComponent<itemManager>();
-        
         ratio = (int)Random.Range(0f,1f);
         ratio1 = (int)Random.Range(0f,1f);
         rand = (int)Random.Range(0f, itManager.items.Count);
         Debug.Log(ratio + " \t"+ ratio1 + " \t" + rand);
-        
         if(ratio == ratio1) {
             GameObject itemKasa = Instantiate(Kasa, trans.transform.position,Quaternion.identity) as GameObject;
             itemKasa.GetComponent<ItemPickup>().item = itManager.items[rand];
             itemKasa.GetComponent<ItemPickup>().itemsParent = itemsParent;
         }
-            
+        #endregion
+
         Destroy(gameObject);
+        player.GetComponent<PlayerControl>().focus = null;
+        GameObject.Find("MobUI").SetActive(false);
+
+        #region Spawner Reset
         string _deadMob = gameObject.transform.tag;
         GameObject spawner = GameObject.Find("Spawner1Lvl");
         spawner.GetComponent<spawner>().stop = false;
@@ -77,6 +87,7 @@ public class EnemyStats : CharacterStats
             }
             j++;
         }
+        #endregion
     }
     GameObject FindInActiveObjectByName(string name)
     {

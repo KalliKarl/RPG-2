@@ -51,7 +51,7 @@ public class spawner : MonoBehaviour
 
             if (enemyCount[randEnemy] < limit) {
                 enemyCount[randEnemy] += 1;
-                Debug.Log("Spawned :" + enemie[randEnemy] + "\t Count :" + enemyCount[randEnemy]);
+                //Debug.Log("Spawned :" + enemie[randEnemy] + "\t Count :" + enemyCount[randEnemy]);
                 GameObject enemyAI = Instantiate(enemies[randEnemy], spawnValues, gameObject.transform.rotation) as GameObject;
             }
 

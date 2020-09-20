@@ -9,18 +9,16 @@ public class CharacterStats : MonoBehaviour {
     public Stat armor;
     public GameObject txtDamage;
     public Transform transDmg;
-    Camera camera1;
+    
 
     public int arm , dmg ;
     public event System.Action<int, int> OnHealthChanged;
 
     private void Awake() {
         currentHealth = maxHealth;
-        camera1 = Camera.main;
     }
     
     public void Update() {
-       // Vector3 screenPos = camera1.WorldToScreenPoint(transform.position);
         if(Input.GetButton("Stats")) {
             Stats();
         }
@@ -46,19 +44,17 @@ public class CharacterStats : MonoBehaviour {
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        currentHealth -= damage;
-        //Debug.Log(transform.name + "Takes " + damage + "Damage");
+        currentHealth -= damage;        //Debug.Log(transform.name + "Takes " + damage + "Damage");
 
         foreach (Canvas c in FindObjectsOfType<Canvas>()) {
             if (c.renderMode != RenderMode.WorldSpace) {
-                Vector3 screenPos = camera1.WorldToScreenPoint(transform.position);
-                
-                GameObject txtDmgUI = Instantiate(txtDamage) as GameObject;
-                txtDmgUI.transform.SetParent(c.transform);
-                RectTransform brt = txtDmgUI.GetComponent<RectTransform>();
+                GameObject txtDmgUI = Instantiate(txtDamage,transform.position,Quaternion.identity,c.transform) as GameObject;
+                txtDmgUI.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);
+                txtDmgUI.GetComponent<RectTransform>().position += new Vector3(0f,300f,0f);
                 txtDmgUI.AddComponent<DamageUI>();
                 txtDmgUI.GetComponent<Text>().text = damage.ToString();
-
+                if (transform.name == "Player")
+                    txtDmgUI.GetComponent<Text>().color = Color.red;
             }
         }
 

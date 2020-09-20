@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour {
     public Interactable focus;
     public LayerMask movementMask;
+    public GameObject hitPrefab;
     Camera cam;
     PlayerMotor motor;
     GameObject mobUI;
@@ -28,6 +29,7 @@ public class PlayerControl : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100, movementMask)) {
                 motor.MoveToPoint(hit.point);
+                hitPrefab.transform.position = hit.point;
                 // Debug.Log("we hit" + hit.collider.name + hit.point);
                 // move our player to what we hit
 

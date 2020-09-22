@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7874507864383493020}
   - component: {fileID: 7874507864383493018}
   m_Layer: 8
-  m_Name: BladeLvl1
+  m_Name: itemBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7872901052400666675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -61.171875, y: 0.3928579, z: -18.708488}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 7874507864335864502}
   m_Father: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7874507864383493020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,8 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 4
   interactionTransform: {fileID: 7874879736063289023}
-  item: {fileID: 0}
   itemsParent: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1 &7874507864335864503
 GameObject:
   m_ObjectHideFlags: 0

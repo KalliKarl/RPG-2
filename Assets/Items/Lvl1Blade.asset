@@ -15,8 +15,14 @@ MonoBehaviour:
   name: Blade1
   icon: {fileID: 21300000, guid: ac4e7eff9cda3a048a3a3c29ad4b184b, type: 3}
   isDefaultItem: 0
+  stackable: 0
+  stack: 1
   equipSlot: 0
   armorModifier: 0
-  damageModifier: 10
+  damageModifier: 16
   level: 1
   degree: 1
+  critical: 0
+  durability: 69
+  block: 0
+  range: 0

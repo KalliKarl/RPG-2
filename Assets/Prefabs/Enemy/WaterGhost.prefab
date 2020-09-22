@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 4025115908408916593}
   - component: {fileID: 4025115908408916598}
   m_Layer: 8
-  m_Name: Eagle
+  m_Name: WaterGhost
   m_TagString: EnemyLvl6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,11 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a576ea220b879f8439778b62c27f2664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 90
+  maxHealth: 114
   damage:
-    baseValue: 7
+    baseValue: 29
   armor:
-    baseValue: 2
+    baseValue: 17
   txtDamage: {fileID: 3920224839572016403, guid: 3324678006317d740ba4bb44e3b6a93f,
     type: 3}
   transDmg: {fileID: 0}

@@ -18,7 +18,11 @@ MonoBehaviour:
   stackable: 0
   stack: 1
   equipSlot: 6
-  armorModifier: 1
+  armorModifier: 2
   damageModifier: 0
   level: 1
   degree: 1
+  critical: 0
+  durability: 49
+  block: 0
+  range: 0

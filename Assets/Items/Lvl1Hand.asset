@@ -15,8 +15,14 @@ MonoBehaviour:
   name: HandLvl1
   icon: {fileID: 21300000, guid: ace13b13ab7a3d347a93a06d111cd0e5, type: 3}
   isDefaultItem: 0
+  stackable: 0
+  stack: 1
   equipSlot: 5
-  armorModifier: 1
+  armorModifier: 2
   damageModifier: 0
   level: 1
   degree: 1
+  critical: 0
+  durability: 48
+  block: 0
+  range: 0

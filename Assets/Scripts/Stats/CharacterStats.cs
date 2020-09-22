@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour {
 
-    public int maxHealth = 100;
+    public int maxHealth = 200,maxMana = 200;
+
     public int currentHealth { get; private set; }
     public Stat damage;
     public Stat armor;
@@ -40,9 +41,10 @@ public class CharacterStats : MonoBehaviour {
         //Debug.Log("armor = " + arm + " Damage = " + dmg);
     }
     public void TakeDamage(int damage) {
-
+        int randDmg = (int)Random.Range(0f, 15f);
+        damage  += damage * (randDmg / 100);
         damage -= armor.GetValue();
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        damage = Mathf.Clamp(damage, 1, int.MaxValue);
 
         currentHealth -= damage;        //Debug.Log(transform.name + "Takes " + damage + "Damage");
 

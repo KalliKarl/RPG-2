@@ -41,7 +41,8 @@ public class CharacterCombat : MonoBehaviour{
 
     IEnumerator DoDamage (CharacterStats stats , float delay) {
         yield return new WaitForSeconds(delay);
-        stats.TakeDamage(myStats.damage.GetValue());
+        int _cDamage = myStats.damage.GetValue();
+        stats.TakeDamage(_cDamage);
         int rand = (int)Random.Range(0f, 5f);
         //Debug.Log(rand +"DoDamage" + myStats.damage.GetValue());
         

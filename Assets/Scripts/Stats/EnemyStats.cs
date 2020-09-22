@@ -40,7 +40,8 @@ public class EnemyStats : CharacterStats
         // if level up
         if (player.GetComponent<Player>().level != lvl) {
             player.GetComponent<Player>().level = lvl;
-            player.GetComponent<PlayerStats>().maxHealth = 100 + lvl * 10;
+            player.GetComponent<PlayerStats>().maxHealth += 14 ;
+            player.GetComponent<PlayerStats>().maxMana += 14;
             player.GetComponent<PlayerStats>().Healthmodifer(player.GetComponent<PlayerStats>().maxHealth);
             GameObject.Find("HpBarRight").GetComponent<Image>().fillAmount = 1;
             GameObject _stats = GameObject.Find("Stats");

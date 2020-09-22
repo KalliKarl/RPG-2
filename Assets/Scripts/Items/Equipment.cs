@@ -8,10 +8,7 @@ public class Equipment : Item{
 
     public EquipmentSlot equipSlot;
 
-    public int armorModifier;
-    public int damageModifier;
-    public int level;
-    public int degree;
+    public int armorModifier, damageModifier, level,degree,critical,durability,block,range;
 
     public override void Use() {
         base.Use();

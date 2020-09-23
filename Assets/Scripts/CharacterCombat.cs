@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +6,7 @@ using UnityEngine.UI;
 public class CharacterCombat : MonoBehaviour{
 
     public float attackSpeed = 1f;
-    private float attackCooldown = 0f;
+    private float attackCooldown = 0f,healingCooldown = 0f;
     public float attackDelay = .6f;
     public event System.Action OnAttack;
     CharacterStats myStats;
@@ -23,6 +22,23 @@ public class CharacterCombat : MonoBehaviour{
 
     private void Update() {
         attackCooldown -= Time.deltaTime;
+        healingCooldown -= Time.deltaTime;
+        if(healingCooldown <= 0) {
+
+           int _cCurhp = this.GetComponent<CharacterStats>().currentHealth;
+
+           int _cMaxhp= this.GetComponent<CharacterStats>().maxHealth;
+            if (_cCurhp != _cMaxhp) {
+                _cCurhp +=(int) ((_cMaxhp / 100f) * 5);
+                if (_cCurhp >= _cMaxhp) {
+                    _cCurhp = _cMaxhp;
+                    this.GetComponent<CharacterStats>().Healthmodifer(_cCurhp);
+
+                }
+                    
+            }
+
+        }
     }
     public void Attack(CharacterStats targetStats) {
         //Debug.Log(attackCooldown);

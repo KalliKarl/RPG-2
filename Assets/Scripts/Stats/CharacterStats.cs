@@ -41,8 +41,10 @@ public class CharacterStats : MonoBehaviour {
         //Debug.Log("armor = " + arm + " Damage = " + dmg);
     }
     public void TakeDamage(int damage) {
-        int randDmg = (int)Random.Range(0f, 15f);
-        damage  += damage * (randDmg / 100);
+
+        float maxdamage  = damage + ((damage / 100f) * 15);
+        int randDmg = (int)Random.Range(damage, maxdamage);
+        damage = randDmg;
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 1, int.MaxValue);
 
